@@ -6,9 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.firstinspires.ftc.teamcode.robot.AutoRobot;
-import org.firstinspires.ftc.teamcode.robot.Camera;
-import org.firstinspires.ftc.teamcode.robot.Robot;
+import org.firstinspires.ftc.teamcode.robot.camera.Camera;
 
 @Autonomous(group = "Tests", name = "Test Camera [Detect & Move]")
 public class MainAuto extends LinearOpMode {

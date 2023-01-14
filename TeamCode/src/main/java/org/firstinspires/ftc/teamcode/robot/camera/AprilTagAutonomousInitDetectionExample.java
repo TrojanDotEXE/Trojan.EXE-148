@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 
-package org.firstinspires.ftc.teamcode.camera;
+package org.firstinspires.ftc.teamcode.robot.camera;
 
 import androidx.annotation.NonNull;
 
