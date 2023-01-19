@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.robot.drivetrains.MecanumDrivetrain;
+import org.firstinspires.ftc.teamcode.robot.mechanisms.Intake;
+import org.firstinspires.ftc.teamcode.robot.mechanisms.Scoring;
 
 public class Robot {
     private OpMode opMode;

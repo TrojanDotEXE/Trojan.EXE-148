@@ -104,7 +104,6 @@ public class MecanumDrivetrain {
         double gamepadAngle = Math.atan2(y, x);
         double pow1 = Range.clip(Math.sin(gamepadAngle - Math.PI/4) * magnitude, -1, 1);
         double pow2 = Range.clip(Math.sin(gamepadAngle + Math.PI/4) * magnitude, -1, 1);
-//        double max = Math.max(Math.abs(pow1), Math.abs(pow2));
         double scale = gamepad.left_stick_button  ? .5 : 1;
 
         frontR = (pow1 - turn ) * scale;

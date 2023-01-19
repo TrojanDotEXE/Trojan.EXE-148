@@ -1,20 +1,11 @@
-# Roadmap Dezvoltare
-[MainAuto](./tests/MainAuto.java)
-4. Baga encoderele in robot si vezi daca merg
-5. Scrie metode pentru deplasare fata si rotatie
+# Ghid de utilizare a claselor
 
-## Drivetrain
-### Op modurile de test
-- [MecanumFCMode](./robot/drivetrains/MecanumFCMode.java)
-- [NormalMode](./tests/NormalMode.java) 
+## Robot
 
-  Vezi daca functioneaza telemety-ul de pe dashboard si poti schimba valoarea lui x
+## Drivetrans
 
-TODO: Dupa ce-ai testat astea, sa-ti scri reminder sa integrezi algoritmii direct in clasele de Drivetrain
+## Camera
 
-## OOP
-- [Robot](./robot/Robot.java)
+## Intake
 
-## Mecanisme
-- [Intake](./robot/Intake.java)
-- [Scoring](./robot/Scoring.java)
+## Scoring
