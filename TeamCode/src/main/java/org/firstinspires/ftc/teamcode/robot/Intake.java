@@ -54,7 +54,7 @@ public class Intake {
 
         }
         claw1.setPosition(0);
-        claw2.setPosition(0);
+        claw2.setPosition(0); // da
     }
 
     public void arm (Gamepad gamepad){
