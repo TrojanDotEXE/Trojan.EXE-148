@@ -9,18 +9,16 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
-import java.util.List;
-
 public class Intake {
     OpMode opMode;
     CRServo slider1, slider2;
     Servo arm1, arm2, claw1, claw2;
-    List<Servo> servos;
     public Intake(@NonNull OpMode opMode){
         this.opMode = opMode;
     }
 
     public void init(){
+
         slider1 = opMode.hardwareMap.get(CRServo.class, "intake1");
 //        slider2 = opMode.hardwareMap.get(CRServo.class, "intake2");
 //        arm1 = opMode.hardwareMap.get(Servo.class, "intakeArm1");

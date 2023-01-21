@@ -6,7 +6,6 @@ import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.robot.camera.Camera;
 import org.firstinspires.ftc.teamcode.robot.drivetrains.MecanumDrivetrain;
 
 public class Robot {
