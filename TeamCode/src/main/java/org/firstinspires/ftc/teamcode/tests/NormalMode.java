@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.robot.Robot;
 
 @Config
-@TeleOp(group = "Tests", name = "Test Driving [NormalMode]")
+@TeleOp(group = "Tests", name = "Test Telemetry [all]")
 public class NormalMode extends OpMode {
     Robot robot = new Robot(this);
     Telemetry dashboardTelemetry;
