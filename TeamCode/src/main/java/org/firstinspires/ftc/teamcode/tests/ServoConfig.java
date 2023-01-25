@@ -9,6 +9,12 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+/*
+TODO: Instaleaza Papier ca sa notezi valorile, sa testezi telemetry-ul,
+ butoanele pentru miscarea servoului butonul de toggle si
+ sa incerci sa implementezi codul si pt celelalte chestii
+*/
+
 @Config
 @TeleOp(group = "Config", name = "Servo Config")
 public class ServoConfig extends LinearOpMode {
@@ -61,6 +67,5 @@ public class ServoConfig extends LinearOpMode {
             telemetry.addData("Servo Pos ", "cur / new  %.2f / %.2f", servo.getPosition(), curPos);
             telemetry.update();
         }
-
     }
 }
