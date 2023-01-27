@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Intake {
     OpMode opMode;
-    CRServo slider1, slider2;
+    Servo slider1, slider2;
     Servo arm1, arm2, claw1, claw2;
     List<Servo> servos;
     public Intake(@NonNull OpMode opMode){
@@ -21,30 +21,29 @@ public class Intake {
     }
 
     public void init(){
-        slider1 = opMode.hardwareMap.get(CRServo.class, "intake1");
-//        slider2 = opMode.hardwareMap.get(CRServo.class, "intake2");
+        slider1 = opMode.hardwareMap.get(Servo.class, "intake1");
+        slider2 = opMode.hardwareMap.get(Servo.class, "intake2");
 //        arm1 = opMode.hardwareMap.get(Servo.class, "intakeArm1");
 //        arm2 = opMode.hardwareMap.get(Servo.class, "intakeArm2");
 //        claw1 = opMode.hardwareMap.get(Servo.class, "claw1");
 //        claw2 = opMode.hardwareMap.get(Servo.class, "claw2");
-//
-        slider1.setDirection(DcMotorSimple.Direction.FORWARD);
-//        slider2.setDirection(DcMotorSimple.Direction.REVERSE);
-//
+
 //        arm1.setPosition(0);
 //        arm2.setPosition(0);
 //        claw1.setPosition(0);
 //        claw2.setPosition(0);
-        slider1.setPower(0);
-//        slider2.setPower(0);
+        slider1.setPosition(0);
+        slider2.setPosition(0);
     }
 
     public void extend (Gamepad gamepad){
         double power = -gamepad.left_stick_y;
-
-            slider1.setPower(power);
-//            slider2.setPower(power);
-
+        double offSet = .1;
+        if (power != 0) {
+            slider1.setPosition(slider1.getPosition() + offSet);
+            slider2.setPosition(slider2.getPosition() + offSet);
+        }
+//            opMode.telemetry.addData("")
     }
 
     public void claw (Gamepad gamepad){

@@ -2,13 +2,13 @@
 <Robot type="FirstInspires-FTC">
     <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
         <LynxModule name="Control Hub" port="173">
-            <goBILDA5202SeriesMotor name="scoring1" port="0" />
-<!--            <NeveRest40Gearmotor name="scoring2" port="1" />-->
+<!--            <goBILDA5202SeriesMotor name="scoring1" port="0" />-->
+<!--            <goBILDA5202SeriesMotor name="scoring2" port="1" />-->
 <!--            <NeveRest40Gearmotor name="frontLeft" port="2" />-->
 <!--            <NeveRest40Gearmotor name="frontRight" port="3" />-->
 
-            <ContinuousRotationServo name="intake1" port="0"/>
-<!--            <Servo name="intake2" port="1"" />-->
+            <Servo name="intake1" port="0"/>
+<!--            <Servo name="intake2" port="1" />-->
         </LynxModule>
     </LynxUsbDevice>
 </Robot>

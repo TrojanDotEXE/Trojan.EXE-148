@@ -18,9 +18,9 @@ TODO: Instaleaza Papier ca sa notezi valorile, sa testezi telemetry-ul,
 @Config
 @TeleOp(group = "Config", name = "Servo Config")
 public class ServoConfig extends LinearOpMode {
-    Servo servo;
-    static double MAX_POS = 1, MIN_POS = 0;
-    static double curPos;
+    public Servo servo;
+    public static double MAX_POS = .9, MIN_POS = 0.7;
+    public static double curPos;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -47,12 +47,16 @@ public class ServoConfig extends LinearOpMode {
             currentGamepad1.copy(gamepad1);
             currentGamepad2.copy(gamepad2);
 
-            if (currentGamepad2.a && !previousGamepad2.a) {
+            if (currentGamepad2.a && !previousGamepad2.a && servo.getPosition() < MAX_POS) {
                 servo.setPosition(servo.getPosition() + 0.1);
             }
 
-            if (currentGamepad2.b && !previousGamepad2.b) {
+            if (currentGamepad2.b && !previousGamepad2.b && servo.getPosition() > MIN_POS) {
                 servo.setPosition(servo.getPosition() - 0.1);
+            }
+
+            if (currentGamepad2.x && !previousGamepad2.x) {
+                servo.setPosition(curPos);
             }
 
 //            if (currentGamepad1.a && !previousGamepad1.a) {

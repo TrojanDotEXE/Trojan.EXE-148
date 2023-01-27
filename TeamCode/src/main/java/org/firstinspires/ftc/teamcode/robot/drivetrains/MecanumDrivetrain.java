@@ -137,6 +137,13 @@ public class MecanumDrivetrain {
         rearR = (pow2 - turn)* scale;
     }
 
+    public void toTelemetry(){
+        opMode.telemetry.addData("Left Front Pow / Pos ", "%.2f / %.2f", leftFront.getPower(), leftFront.getCurrentPosition());
+        opMode.telemetry.addData("Right Front Pow / Pos ", "%.2f / %.2f", rightFront.getPower(), rightFront.getCurrentPosition());
+        opMode.telemetry.addData("Left Rear Pow / Pos ", "%.2f / %.2f", leftRear.getPower(), leftRear.getCurrentPosition());
+        opMode.telemetry.addData("Left Front Pow / Pos ", "%.2f / %.2f", rightRear.getPower(), rightRear.getCurrentPosition());
+    }
+
     public double getAngle() {
         return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.RADIANS).firstAngle;
     }
