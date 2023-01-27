@@ -30,6 +30,7 @@ public class ServoConfig extends LinearOpMode {
         Gamepad previousGamepad2 = new Gamepad();
 
         servo = hardwareMap.get(Servo.class, "servo");
+        servo.setDirection(Servo.Direction.FORWARD);
         servo.setPosition(MIN_POS);
 
         Telemetry telemetry = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
