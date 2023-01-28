@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.tests;
+package org.firstinspires.ftc.teamcode.tests.configs;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -17,7 +17,7 @@ TODO: Instaleaza Papier ca sa notezi valorile
 @TeleOp(group = "Config", name = "Servo Config")
 public class ServoConfig extends LinearOpMode {
     public Servo servo;
-    public static double MAX_POS = .9, MIN_POS = 0.7;
+    public static double MAX_POS = 1, MIN_POS = 0;
     public static double curPos;
 
     @Override
@@ -31,7 +31,7 @@ public class ServoConfig extends LinearOpMode {
 
         servo = hardwareMap.get(Servo.class, "servo");
         servo.setDirection(Servo.Direction.FORWARD);
-        servo.setPosition(MIN_POS);
+        servo.setPosition(MAX_POS);
 
         Telemetry telemetry = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
         telemetry.addLine("Ready!");

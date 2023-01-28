@@ -1,15 +1,19 @@
 package org.firstinspires.ftc.teamcode.robot.mecanisms;
 
+import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+@Config
 public class Claw {
     private Servo claw1, claw2;
-    private double OPEN = 0.9, CLOSE = 0.7;
+    public static double OPEN = .5, CLOSE = 0;
 
     public void init(HardwareMap hardwareMap){
         claw1 = hardwareMap.get(Servo.class, "claw1");
         claw2 = hardwareMap.get(Servo.class, "claw2");
+        claw1.setDirection(Servo.Direction.FORWARD);
+        claw2.setDirection(Servo.Direction.REVERSE);
         claw1.setPosition(CLOSE);
         claw2.setPosition(CLOSE);
     }
@@ -24,5 +28,7 @@ public class Claw {
             claw2.setPosition(CLOSE);
         }
     }
+
+    public Claw(){}
 
 }

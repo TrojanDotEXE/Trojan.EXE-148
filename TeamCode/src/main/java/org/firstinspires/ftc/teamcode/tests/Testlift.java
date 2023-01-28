@@ -18,7 +18,7 @@ public class Testlift extends OpMode {
 
     @Override
     public void loop() {
-        intake.extend(gamepad2);
+
         scoring.extend(gamepad2);
     }
 }

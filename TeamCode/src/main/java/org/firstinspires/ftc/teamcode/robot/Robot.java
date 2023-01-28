@@ -36,6 +36,7 @@ public class Robot {
 
         drivetrain = new MecanumDrivetrain(opMode, imu);
         intake     = new Intake(opMode);
+        intake.init();
         scoring    = new Scoring(opMode);
 
         opMode.telemetry.addData("[Status]: ", "initializat");
