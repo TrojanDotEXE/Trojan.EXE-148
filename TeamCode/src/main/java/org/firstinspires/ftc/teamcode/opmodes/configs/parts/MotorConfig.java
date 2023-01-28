@@ -1,16 +1,17 @@
-package org.firstinspires.ftc.teamcode.tests.configs;
+package org.firstinspires.ftc.teamcode.opmodes.configs.parts;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+//@Disabled
 @Config
 @TeleOp(group = "Configs", name = "Motor Config")
 public class MotorConfig extends LinearOpMode {

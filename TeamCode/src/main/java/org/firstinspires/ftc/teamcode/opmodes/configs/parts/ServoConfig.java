@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.tests.configs;
+package org.firstinspires.ftc.teamcode.opmodes.configs.parts;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -9,12 +9,8 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-/*
-TODO: Instaleaza Papier ca sa notezi valorile
-*/
-
 @Config
-@TeleOp(group = "Config", name = "Servo Config")
+@TeleOp(group = "Configs", name = "Servo Config")
 public class ServoConfig extends LinearOpMode {
     public Servo servo;
     public static double MAX_POS = 1, MIN_POS = 0;

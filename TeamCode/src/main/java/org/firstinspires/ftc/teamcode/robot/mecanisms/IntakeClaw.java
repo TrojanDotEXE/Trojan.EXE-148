@@ -4,8 +4,9 @@ import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+
 @Config
-public class Claw {
+public class IntakeClaw {
     private Servo claw1, claw2;
     public static double OPEN = .5, CLOSE = 0;
 
@@ -28,7 +29,4 @@ public class Claw {
             claw2.setPosition(CLOSE);
         }
     }
-
-    public Claw(){}
-
 }
