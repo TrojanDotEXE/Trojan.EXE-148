@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeClaw;
 
 //@Disabled
-@TeleOp(group = "Configs", name = "Intake Config")
+@TeleOp(group = "Configs", name = "Intake Claw Config")
 public class IntakeClawConfig extends LinearOpMode {
     IntakeClaw intakeClaw;
 

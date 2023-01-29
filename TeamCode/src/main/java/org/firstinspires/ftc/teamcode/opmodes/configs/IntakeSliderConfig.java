@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeSlider;
 
 //@Disabled
-@TeleOp(group = "Configs", name = "Motor Config")
+@TeleOp(group = "Configs", name = "Intake Slider Config")
 public class IntakeSliderConfig extends LinearOpMode {
     IntakeSlider intakeSlider;
 
