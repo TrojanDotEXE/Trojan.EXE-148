@@ -18,14 +18,14 @@ public class IntakeSliderConfig extends LinearOpMode {
 //    IntakeSlider intakeSlider = new IntakeSlider();
     private Servo slider1, slider2;
     public static double EXTENDED_S = .42, RETRACTED_S = .13;
-    public static double EXTENDED_D = 1, RETRACTED_D = .33 ;
+    public static double EXTENDED_D = .88, RETRACTED_D = .62;
     @Override
     public void runOpMode() throws InterruptedException {
 //        intakeSlider.init(hardwareMap);
         slider1 = hardwareMap.get(Servo.class, "intakeS");
         slider2 = hardwareMap.get(Servo.class, "intakeD");
         slider1.setDirection(Servo.Direction.REVERSE);
-        slider2.setDirection(Servo.Direction.REVERSE);
+        slider2.setDirection(Servo.Direction.FORWARD);
         slider1.setPosition(RETRACTED_S);
         slider2.setPosition(RETRACTED_D);
 
