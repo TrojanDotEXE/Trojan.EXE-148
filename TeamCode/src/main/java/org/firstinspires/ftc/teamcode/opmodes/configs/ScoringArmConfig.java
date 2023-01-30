@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import org.firstinspires.ftc.teamcode.robot.mecanisms.ScoringArm;
 
 //@Disabled
-@TeleOp(group = "Configs", name = "Intake Slider Config")
+@TeleOp(group = "Configs", name = "Scoring Arm Config")
 
 public class ScoringArmConfig extends LinearOpMode {
     ScoringArm arm;
