@@ -18,7 +18,7 @@ public class IntakeSliderConfig extends LinearOpMode {
 //    IntakeSlider intakeSlider = new IntakeSlider();
     private Servo slider1, slider2;
     public static double EXTENDED_S = .42, RETRACTED_S = .11;
-    public static double EXTENDED_D = .88, RETRACTED_D = .62;
+    public static double EXTENDED_D = .83, RETRACTED_D = .55;
     @Override
     public void runOpMode() throws InterruptedException {
 //        intakeSlider.init(hardwareMap);

@@ -16,6 +16,6 @@ public class Main extends OpMode {
     @Override
     public void loop() {
         robot.drivetrain.drive(gamepad1);
-        robot.intake.keyBind(gamepad2);
+//        robot.intake.keyBind(gamepad2);
     }
 }
