@@ -35,7 +35,7 @@ public class MotorConfig extends LinearOpMode {
                 motor.setTargetPosition(MAX_POS);
                 motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 while (motor.isBusy() && motor.getCurrentPosition() < MAX_POS)
-                    motor.setPower(1);
+                    motor.setPower(0.5);
             }
             if(gamepad2.b) {
                 motor.setTargetPosition(0);

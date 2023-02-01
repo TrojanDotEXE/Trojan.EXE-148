@@ -34,7 +34,7 @@ public class MecanumDrivetrain {
         AIM_ASSISTED
     }
 
-    public MecanumDrivetrain(OpMode opMode, BNO055IMU imu) {this(opMode, imu, DriveMode.NORMAL);}
+    public MecanumDrivetrain(OpMode opMode, BNO055IMU imu) {this(opMode, imu, DriveMode.FIELD_CENTERED);}
 
     public MecanumDrivetrain(@NonNull OpMode opMode, BNO055IMU imu, DriveMode driveMode) {
         opMode.telemetry.addData("Mecanum Drive: ", "se pregateste...");

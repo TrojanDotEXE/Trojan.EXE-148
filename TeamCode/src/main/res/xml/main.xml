@@ -2,18 +2,20 @@
 <Robot type="FirstInspires-FTC">
     <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
         <LynxModule name="Control Hub" port="173">
-            <LynxEmbeddedIMU name="imu" port="0" bus="0" />
-            <goBILDA5202SeriesMotor name="leftFront" port="0" />
-            <goBILDA5202SeriesMotor name="leftRear" port="1" />
-            <goBILDA5202SeriesMotor name="rightFront" port="2" />
-            <goBILDA5202SeriesMotor name="rightRear" port="3" />
-<!--            <goBILDA5202SeriesMotor name="scoring1" port="0" />-->
-<!--            <goBILDA5202SeriesMotor name="scoring2" port="1" />-->
-<!--            <NeveRest40Gearmotor name="frontLeft" port="2" />-->
-<!--            <NeveRest40Gearmotor name="frontRight" port="3" />-->
-
-            <Servo name="claw1" port="0"/>
-            <Servo name="claw2" port="1" />
+<!--            <LynxEmbeddedIMU name="imu" port="0" bus="0" />-->
+            <!--            Drivetrain          -->
+<!--            <goBILDA5202SeriesMotor name="leftFront" port="0" />-->
+<!--            <goBILDA5202SeriesMotor name="leftRear" port="1" />-->
+<!--            <goBILDA5202SeriesMotor name="rightFront" port="2" />-->
+<!--            <goBILDA5202SeriesMotor name="rightRear" port="3" />-->
+            <!--              Intake            -->
+<!--            <Servo name="intakeS" port="0"/>-->
+<!--            <Servo name="intakeD" port="1"/>-->
+<!--            <Servo name="claw1" port="0"/>-->
+<!--            <Servo name="claw2" port="1" />-->
+            <!--            Scoring               -->
+            <goBILDA5202SeriesMotor name="scoringS" port="0" />
+            <goBILDA5202SeriesMotor name="scoringD" port="1" />
         </LynxModule>
     </LynxUsbDevice>
 </Robot>
