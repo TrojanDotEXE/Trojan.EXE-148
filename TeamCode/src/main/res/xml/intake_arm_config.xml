@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Robot type="FirstInspires-FTC">
+    <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
+        <LynxModule name="Control Hub" port="173">
+            <RevRoboticsCoreHexMotor name="intakeArm" port="0" />
+        </LynxModule>
+    </LynxUsbDevice>
+</Robot>
+
+    <!--            Andymark Gearmotors-->
+
+    <!--            <NeveRest3.7v1Gearmotor name="[...]" port="[...]" />-->
+    <!--            <NeveRest20Gearmotor name="[...]" port="[...]" />-->
+    <!--            <NeveRest40Gearmotor name="[...]" port="[...]" />-->
+    <!--            <NeveRest60Gearmotor name="[...]" port="[...]" />-->
+
+
+    <!--            REV Robotics Gearmotors-->
+    <!--            -->
+    <!--            <RevRobotics20HDHexMotor name="[...]" port="[...]" />-->
+    <!--            <RevRobotics40HDHexMotor name="[...]" port="[...]" />-->
+    <!--            <RevRoboticsCoreHexMotor name="[...]" port="[...]" />-->
+
+
+    <!--            GoBILDA Gearmotors-->
+
+    <!--            <goBILDA5201SeriesMotor name="[...]" port="[...]" />-->
+    <!--            <goBILDA5202SeriesMotor name="[...]" port="[...]" />-->
+
+
+    <!--            Tetrix Gearmotors-->
+
+    <!--            <TetrixMotor  name="[...]" port="[...]" />-->
+
+    <!--            <Servo name="[...] port=[...]" />-->
+    <!--            <ContinuousRotationServo name="[...]" port="[...]" />-->

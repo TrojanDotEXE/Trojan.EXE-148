@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeClaw;
 //@Disabled
 @TeleOp(group = "Configs", name = "Intake Claw Config")
 public class IntakeClawConfig extends LinearOpMode {
-    IntakeClaw intakeClaw;
+    IntakeClaw intakeClaw = new IntakeClaw();
 
     @Override
     public void runOpMode() throws InterruptedException {

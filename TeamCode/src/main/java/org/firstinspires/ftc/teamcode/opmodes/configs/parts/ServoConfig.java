@@ -43,11 +43,11 @@ public class ServoConfig extends LinearOpMode {
             currentGamepad2.copy(gamepad2);
 
             if (currentGamepad2.a && !previousGamepad2.a && servo.getPosition() < MAX_POS) {
-                servo.setPosition(servo.getPosition() + 0.1);
+                servo.setPosition(servo.getPosition() + 0.05);
             }
 
             if (currentGamepad2.b && !previousGamepad2.b && servo.getPosition() > MIN_POS) {
-                servo.setPosition(servo.getPosition() - 0.1);
+                servo.setPosition(servo.getPosition() - 0.05);
             }
 
             if (currentGamepad2.x && !previousGamepad2.x) {

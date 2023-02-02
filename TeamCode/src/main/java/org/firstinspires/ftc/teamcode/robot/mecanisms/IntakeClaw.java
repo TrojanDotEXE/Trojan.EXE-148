@@ -8,25 +8,26 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Config
 public class IntakeClaw {
     private Servo claw1, claw2;
-    public static double OPEN = .5, CLOSE = 0;
+    public static double OPEND = .12, CLOSED = 0;
+    public static double OPENS = .45, CLOSES = .66;
 
     public void init(HardwareMap hardwareMap){
         claw1 = hardwareMap.get(Servo.class, "claw1");
         claw2 = hardwareMap.get(Servo.class, "claw2");
         claw1.setDirection(Servo.Direction.FORWARD);
-        claw2.setDirection(Servo.Direction.REVERSE);
-        claw1.setPosition(CLOSE);
-        claw2.setPosition(CLOSE);
+        claw2.setDirection(Servo.Direction.FORWARD);
+        claw1.setPosition(CLOSED);
+        claw2.setPosition(CLOSES);
     }
 
     public void keyBind(Gamepad gamepad){
         if(gamepad.left_bumper){
-            claw1.setPosition(OPEN);
-            claw2.setPosition(OPEN);
+            claw1.setPosition(OPEND);
+            claw2.setPosition(OPENS);
         }
         else{
-            claw1.setPosition(CLOSE);
-            claw2.setPosition(CLOSE);
+            claw1.setPosition(CLOSED);
+            claw2.setPosition(CLOSES);
         }
     }
 }

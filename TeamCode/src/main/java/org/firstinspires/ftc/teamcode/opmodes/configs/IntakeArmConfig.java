@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeArm;
 //@Disabled
 @TeleOp(group = "Configs", name = "Intake Arm Config")
 public class IntakeArmConfig extends LinearOpMode {
-    IntakeArm intakeArm;
+    IntakeArm intakeArm = new IntakeArm();
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -20,7 +20,7 @@ public class IntakeArmConfig extends LinearOpMode {
 
         waitForStart();
 
-        while (opModeIsActive()){
+        while (opModeIsActive() && !isStopRequested()){
             previousGamepad2.copy(currentGamepad2);
             currentGamepad2.copy(gamepad2);
 

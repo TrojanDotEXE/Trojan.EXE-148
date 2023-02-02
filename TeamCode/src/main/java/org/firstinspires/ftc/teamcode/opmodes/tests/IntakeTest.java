@@ -19,7 +19,7 @@ public class IntakeTest extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            intake.keyBind(gamepad2);
+//            intake.keyBind(gamepad2);
         }
 
         telemetry.addData("Intake1 ", "pozitia bratului %.2f", intake.arm.getPosition());

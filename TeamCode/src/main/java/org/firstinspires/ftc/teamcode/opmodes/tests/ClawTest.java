@@ -17,7 +17,7 @@ public class ClawTest extends LinearOpMode {
         intake.init();
         waitForStart();
         while (opModeIsActive()){
-            intake.keyBind(gamepad2);
+//            intake.keyBind(gamepad2);
         }
     }
 }
