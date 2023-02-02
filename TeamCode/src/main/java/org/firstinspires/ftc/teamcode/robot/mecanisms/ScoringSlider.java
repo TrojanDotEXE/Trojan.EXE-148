@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -13,6 +14,8 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class ScoringSlider {
     private DcMotorEx sliderS, sliderD;
     public static int MAX_SLIDER = 500;
+    private double power;
+    private double min = -1, max = 1;
 
     public void init(HardwareMap hardwareMap){
         sliderS = hardwareMap.get(DcMotorEx.class, "scoringS");
@@ -33,15 +36,17 @@ public class ScoringSlider {
     }
 
     public void keyMap (Gamepad gamepad){
-        double power = -gamepad.right_stick_y;
+        power = -gamepad.right_stick_y;
         if ((sliderS.getCurrentPosition() < MAX_SLIDER)&&(sliderD.getCurrentPosition() < MAX_SLIDER)){
-            sliderS.setPower(power);
-            sliderD.setPower(power);
+           min = 0;
+           max = 1;
         }
-        else{
-            sliderS.setPower(0 );
-            sliderD.setPower(0 );
+        if ((sliderS.getCurrentPosition() > 0)&&(sliderD.getCurrentPosition() > 0)){
+            min = -1;
+            max = 0;
         }
+        sliderS.setPower(Range.clip(power, min, max));
+        sliderD.setPower(Range.clip(power, min, max));
     }
 
     public void getPos(Telemetry telemetry){

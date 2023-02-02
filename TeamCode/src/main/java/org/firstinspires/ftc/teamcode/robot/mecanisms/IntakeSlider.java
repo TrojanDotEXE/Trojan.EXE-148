@@ -18,7 +18,6 @@ public class IntakeSlider {
         slider2.setDirection(Servo.Direction.FORWARD);
         slider1.setPosition(RETRACTED_S);
         slider2.setPosition(RETRACTED_D);
-
     }
 
     public void keyBind(Gamepad gamepad){
