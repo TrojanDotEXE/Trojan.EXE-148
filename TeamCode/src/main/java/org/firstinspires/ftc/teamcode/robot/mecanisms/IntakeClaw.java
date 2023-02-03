@@ -7,27 +7,29 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @Config
 public class IntakeClaw {
-    private Servo claw1, claw2;
+    private Servo rightClaw, leftClaw;
     public static double OPEND = .12, CLOSED = 0;
     public static double OPENS = .45, CLOSES = .66;
+    private boolean toggle = false;
 
     public void init(HardwareMap hardwareMap){
-        claw1 = hardwareMap.get(Servo.class, "claw1");
-        claw2 = hardwareMap.get(Servo.class, "claw2");
-        claw1.setDirection(Servo.Direction.FORWARD);
-        claw2.setDirection(Servo.Direction.FORWARD);
-        claw1.setPosition(CLOSED);
-        claw2.setPosition(CLOSES);
+        rightClaw = hardwareMap.get(Servo.class, "clawR");
+        leftClaw = hardwareMap.get(Servo.class, "clawL");
+        rightClaw.setDirection(Servo.Direction.FORWARD);
+        leftClaw.setDirection(Servo.Direction.FORWARD);
+        rightClaw.setPosition(CLOSED);
+        leftClaw.setPosition(CLOSES);
     }
 
-    public void keyBind(Gamepad gamepad){
-        if(gamepad.left_bumper){
-            claw1.setPosition(OPEND);
-            claw2.setPosition(OPENS);
+    public void keyBind(Gamepad gamepad, Gamepad prevGamepad){
+        if(gamepad.left_bumper && !prevGamepad.left_bumper) toggle = !toggle;
+        if(toggle){
+            rightClaw.setPosition(OPEND);
+            leftClaw.setPosition(OPENS);
         }
         else{
-            claw1.setPosition(CLOSED);
-            claw2.setPosition(CLOSES);
+            rightClaw.setPosition(CLOSED);
+            leftClaw.setPosition(CLOSES);
         }
     }
 }

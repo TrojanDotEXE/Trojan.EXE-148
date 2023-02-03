@@ -73,14 +73,12 @@ public class MecanumDrivetrain {
                 if (gamepad.a) setDriveMode(DriveMode.FIELD_CENTERED);
                 calculatePowers(gamepad);
                 opMode.telemetry.addData("Mode ", "Normal");
-            }
-                break;
+            }break;
             case FIELD_CENTERED: {
                 if (gamepad.b) setDriveMode(DriveMode.NORMAL);
                 calculatePowers2(gamepad);
                 opMode.telemetry.addData("Mode ", "Field Centered");
-            }
-                break;
+            }break;
         }
         leftFront.setPower(frontL);
         rightFront.setPower(frontR);
@@ -105,7 +103,6 @@ public class MecanumDrivetrain {
         double gamepadAngle = Math.atan2(y, x);
         double pow1 = Range.clip(Math.sin(gamepadAngle - Math.PI/4) * magnitude, -1, 1);
         double pow2 = Range.clip(Math.sin(gamepadAngle + Math.PI/4) * magnitude, -1, 1);
-//        double max = Math.max(Math.abs(pow1), Math.abs(pow2));
         double scale = gamepad.left_stick_button  ? .5 : 1;
 
         frontR = (pow1 - turn ) * scale;

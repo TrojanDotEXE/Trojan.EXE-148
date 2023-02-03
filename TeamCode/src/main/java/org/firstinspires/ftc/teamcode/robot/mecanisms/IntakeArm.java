@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class IntakeArm {
     private DcMotorEx arm;
     public static int DOWN_POS = 50, UP_POS = 0;
+    public static double power = 0.2;
 
     public void init(@NonNull HardwareMap hardwareMap){
         arm = hardwareMap.get(DcMotorEx.class, "intakeArm");
@@ -27,12 +28,12 @@ public class IntakeArm {
         if(gamepad.a && !gamepadcopy.a){
             arm.setTargetPosition(UP_POS);
             arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            while (arm.isBusy()) arm.setPower(.2);
+            while (arm.isBusy()) arm.setPower(power);
         }
         if(gamepad.b && !gamepadcopy.b){
             arm.setTargetPosition(DOWN_POS);
             arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            while (arm.isBusy()) arm.setPower(.2);
+            while (arm.isBusy()) arm.setPower(power);
         }
     }
 

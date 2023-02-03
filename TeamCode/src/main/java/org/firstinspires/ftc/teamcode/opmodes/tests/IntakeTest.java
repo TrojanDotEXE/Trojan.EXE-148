@@ -22,7 +22,7 @@ public class IntakeTest extends LinearOpMode {
 //            intake.keyBind(gamepad2);
         }
 
-        telemetry.addData("Intake1 ", "pozitia bratului %.2f", intake.arm.getPosition());
+        telemetry.addData("Intake1 ", "pozitia bratului %.2f", intake.intakeArm.getPosition());
         }
 
     }

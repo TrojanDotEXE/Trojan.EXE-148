@@ -17,11 +17,11 @@ public class MainAuto extends LinearOpMode {
 
 //        switch (tagID) {
 //            case 1: {
-////                leftFront .setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100)); // 538 fot 9.6 cm
-////                rightFront.setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100));
-////                leftRear  .setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100));
-////                rightRear .setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100));
-////            }
+//                leftFront .setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100)); // 538 fot 9.6 cm
+//                rightFront.setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100));
+//                leftRear  .setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100));
+//                rightRear .setTargetPosition(Math.round((9.6 * TICKS_PER_REVOLUTION)*100));
+//            }
 //            break;
 //            case 2: {
 //                leftFront .setTargetPosition(-40*TICKS_PER_CM);

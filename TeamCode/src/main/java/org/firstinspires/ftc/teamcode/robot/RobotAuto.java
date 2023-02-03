@@ -5,17 +5,16 @@ import androidx.annotation.NonNull;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.robot.camera.Camera;
 import org.firstinspires.ftc.teamcode.robot.drivetrains.MecanumDrivetrain;
 
-public class RobotAuto {
+public class RobotAuto{
     private LinearOpMode opMode;
+    public MecanumDrivetrain drivetrain;
     public Intake intake;
     public Scoring scoring;
-    public MecanumDrivetrain drivetrain;
     public Camera camera;
     public BNO055IMU imu;
     private ElapsedTime timer = new ElapsedTime(ElapsedTime.Resolution.SECONDS);
@@ -37,11 +36,13 @@ public class RobotAuto {
         imu = opMode.hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
 
+        drivetrain = new MecanumDrivetrain(opMode, imu);
         intake     = new Intake(opMode);
         scoring    = new Scoring(opMode);
         camera     = new Camera(opMode);
-        drivetrain = new MecanumDrivetrain(opMode, imu);
 
+        intake.init();
+        scoring.init();
         camera.init();
 
         opMode.telemetry.addData("[Status]: ", "initializat");

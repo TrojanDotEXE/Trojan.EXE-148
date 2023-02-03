@@ -10,6 +10,7 @@ public class IntakeSlider {
     private Servo slider1, slider2;
     public static double EXTENDED_S = 1, RETRACTED_S = 0;
     public static double EXTENDED_D = 1, RETRACTED_D = 0;
+    private boolean toggle = false;
 
     public void init(HardwareMap hardwareMap){
         slider1 = hardwareMap.get(Servo.class, "intakeS");
@@ -20,12 +21,13 @@ public class IntakeSlider {
         slider2.setPosition(RETRACTED_D);
     }
 
-    public void keyBind(Gamepad gamepad){
-        if(gamepad.a){
+    public void keyBind(Gamepad gamepad, Gamepad prevGamepad){
+        if(gamepad.left_bumper && !prevGamepad.left_bumper) toggle = !toggle;
+        if(toggle){
             slider1.setPosition(EXTENDED_S);
             slider2.setPosition(EXTENDED_D);
         }
-        if(gamepad.b){
+        else {
             slider1.setPosition(RETRACTED_S);
             slider2.setPosition(RETRACTED_D);
         }

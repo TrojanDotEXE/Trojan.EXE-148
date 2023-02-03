@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.robot;
 import androidx.annotation.NonNull;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -36,8 +37,9 @@ public class Robot {
 
         drivetrain = new MecanumDrivetrain(opMode, imu);
         intake     = new Intake(opMode);
-//        intake.init();
         scoring    = new Scoring(opMode);
+        scoring.init();
+        intake.init();
 
         opMode.telemetry.addData("[Status]: ", "initializat");
     }
