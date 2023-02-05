@@ -13,8 +13,6 @@ import org.firstinspires.ftc.teamcode.robot.mechanisms.Scoring;
 public class Robot {
     private OpMode opMode;
     public MecanumDrivetrain drivetrain;
-    public Intake intake;
-    public Scoring scoring;
     public BNO055IMU imu;
     private ElapsedTime timer = new ElapsedTime(ElapsedTime.Resolution.SECONDS);
 
@@ -25,7 +23,7 @@ public class Robot {
     public void init(){
         opMode.telemetry.addData("[Status]: ", "se pregateste...");
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.angleUnit = BNO055IMU.AngleUnit.RADIANS;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.calibrationDataFile = "BNO055IMUCalibration.json";
         parameters.loggingEnabled = true;
@@ -36,8 +34,6 @@ public class Robot {
         imu.initialize(parameters);
 
         drivetrain = new MecanumDrivetrain(opMode, imu);
-        intake     = new Intake(opMode);
-        scoring    = new Scoring(opMode);
 
         opMode.telemetry.addData("[Status]: ", "initializat");
     }

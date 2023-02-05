@@ -75,7 +75,7 @@ public class MecanumDrivetrain {
             }
                 break;
             case FIELD_CENTERED: {
-                if (gamepad.b) setDriveMode(DriveMode.NORMAL);
+                if (gamepad.a) setDriveMode(DriveMode.NORMAL);
                 calculatePowers2(gamepad);
                 opMode.telemetry.addData("Mode ", "Field Centered");
             }
@@ -136,7 +136,7 @@ public class MecanumDrivetrain {
     }
 
     public double getAngle() {
-        return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.RADIANS).firstAngle;
+        return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XZY, AngleUnit.RADIANS).firstAngle;
     }
 
     public void powersToTelemetry(@NonNull Telemetry t) {
