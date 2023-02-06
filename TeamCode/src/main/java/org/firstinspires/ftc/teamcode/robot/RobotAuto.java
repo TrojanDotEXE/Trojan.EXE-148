@@ -8,7 +8,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.robot.camera.Camera;
-import org.firstinspires.ftc.teamcode.robot.drivetrains.MecanumDrivetrain;
 
 public class RobotAuto{
     private LinearOpMode opMode;

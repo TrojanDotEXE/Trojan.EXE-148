@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.opmodes.tests;
+package org.firstinspires.ftc.teamcode.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.robot.RobotAuto;
 
 @Autonomous(group = "Tests", name = "Test Camera [Detect & Move]")
-public class MainAuto extends LinearOpMode {
+public class AutoRosu extends LinearOpMode {
     RobotAuto robot = new RobotAuto(this);
 
     @Override

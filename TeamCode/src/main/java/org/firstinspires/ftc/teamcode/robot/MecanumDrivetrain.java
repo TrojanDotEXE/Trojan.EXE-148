@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.robot.drivetrains;
+package org.firstinspires.ftc.teamcode.robot;
 
 import androidx.annotation.NonNull;
 import com.qualcomm.hardware.bosch.BNO055IMU;
@@ -30,8 +30,6 @@ public class MecanumDrivetrain {
     enum DriveMode {
         NORMAL,
         FIELD_CENTERED,
-        ASSISTED,
-        AIM_ASSISTED
     }
 
     public MecanumDrivetrain(OpMode opMode, BNO055IMU imu) {this(opMode, imu, DriveMode.FIELD_CENTERED);}
@@ -72,12 +70,10 @@ public class MecanumDrivetrain {
             case NORMAL: {
                 if (gamepad.a) setDriveMode(DriveMode.FIELD_CENTERED);
                 calculatePowers(gamepad);
-//                opMode.telemetry.addData("Mode ", "Normal");
             }break;
             case FIELD_CENTERED: {
-                if (gamepad.b) setDriveMode(DriveMode.NORMAL);
+                if (gamepad.a) setDriveMode(DriveMode.NORMAL);
                 calculatePowers2(gamepad);
-//                opMode.telemetry.addData("Mode ", "Field Centered");
             }break;
         }
         leftFront.setPower(frontL);

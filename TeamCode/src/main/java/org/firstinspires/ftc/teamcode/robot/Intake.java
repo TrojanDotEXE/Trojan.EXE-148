@@ -3,9 +3,8 @@ package org.firstinspires.ftc.teamcode.robot;
 import androidx.annotation.NonNull;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
-
-import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeClaw;
 import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeArm;
+import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeClaw;
 import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeSlider;
 
 public class Intake {
