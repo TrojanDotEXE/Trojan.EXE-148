@@ -9,32 +9,30 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import java.util.concurrent.TimeUnit;
 
 @Config
 public class ScoringArm {
-    private CRServo arm;
-    public static double power = 1;
-    public static ElapsedTime timer;
+    private Servo arm;
+    public static double MAX_POS = .6, MIN_POS = 0;
+    public boolean armToggle = true;
 
     public void init(@NonNull HardwareMap hardwareMap){
-        arm = hardwareMap.get(CRServo.class, "scoringArm");
-        arm.setDirection(DcMotorSimple.Direction.FORWARD);
-        arm.setPower(0);
+        arm = hardwareMap.get(Servo.class, "scoringArm");
+        arm.setDirection(Servo.Direction.FORWARD);
+        arm.setPosition(0);
     }
 
     public void keyBind(@NonNull Gamepad gamepad, Gamepad gamepadcopy){
-        if(gamepad.a && !gamepadcopy.a){
-            timer.reset();
-            while ((int)timer.time(TimeUnit.SECONDS) < 4) arm.setPower(power);
-            arm.setPower(0);
+        if(gamepad.a && !gamepadcopy.a) armToggle = !armToggle;
+        if(armToggle){
+            arm.setPosition(MIN_POS);
         }
-        if(gamepad.b && !gamepadcopy.b){
-            timer.reset();
-            while ((int)timer.time(TimeUnit.SECONDS) < 4) arm.setPower(-power);
-            arm.setPower(0);
+        else{
+            arm.setPosition(MAX_POS);
         }
     }
 

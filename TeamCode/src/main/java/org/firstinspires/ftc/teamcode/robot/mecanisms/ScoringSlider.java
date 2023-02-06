@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 @Config
 public class ScoringSlider {
     private DcMotorEx sliderS, sliderD;
-    public static int MAX_SLIDER = 500;
+    public static int LOW_J = 0, MID_J = 300, HIGH_J = 1790;
     private double power;
     private double min = -1, max = 1;
 
@@ -37,7 +37,7 @@ public class ScoringSlider {
 
     public void keyMap (Gamepad gamepad){
         power = -gamepad.right_stick_y;
-        if ((sliderS.getCurrentPosition() < MAX_SLIDER)&&(sliderD.getCurrentPosition() < MAX_SLIDER)){
+        if ((sliderS.getCurrentPosition() < HIGH_J)&&(sliderD.getCurrentPosition() < HIGH_J)){
            min = 0;
            max = 1;
         }
@@ -50,7 +50,7 @@ public class ScoringSlider {
     }
 
     public void getPos(Telemetry telemetry){
-        telemetry.addData("SliderS ", "%2d / %2d", sliderS.getCurrentPosition(), MAX_SLIDER);
-        telemetry.addData("SliderD ", "%2d / %2d", sliderD.getCurrentPosition(), MAX_SLIDER);
+        telemetry.addData("SliderS ", "%2d/%2d ", sliderS.getCurrentPosition(), HIGH_J);
+        telemetry.addData("SliderD ", "%2d/%2d ", sliderD.getCurrentPosition(), HIGH_J);
     }
 }

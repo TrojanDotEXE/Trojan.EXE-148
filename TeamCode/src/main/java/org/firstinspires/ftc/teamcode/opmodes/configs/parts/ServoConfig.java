@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 @TeleOp(group = "Configs", name = "Servo Config")
 public class ServoConfig extends LinearOpMode {
     public Servo servo;
-    public static double MAX_POS = 1, MIN_POS = 0;
+    public static double MAX_POS = .6, MIN_POS = 0;
     public static double curPos;
 
     @Override
@@ -27,7 +27,7 @@ public class ServoConfig extends LinearOpMode {
 
         servo = hardwareMap.get(Servo.class, "servo");
         servo.setDirection(Servo.Direction.FORWARD);
-        servo.setPosition(MAX_POS);
+        servo.setPosition(MIN_POS);
 
         Telemetry telemetry = new MultipleTelemetry(this.telemetry, FtcDashboard.getInstance().getTelemetry());
         telemetry.addLine("Ready!");
@@ -42,12 +42,14 @@ public class ServoConfig extends LinearOpMode {
             currentGamepad1.copy(gamepad1);
             currentGamepad2.copy(gamepad2);
 
-            if (currentGamepad2.a && !previousGamepad2.a && servo.getPosition() < MAX_POS) {
-                servo.setPosition(servo.getPosition() + 0.05);
+            if (currentGamepad2.a && !previousGamepad2.a) {
+//                servo.setPosition(servo.getPosition() + 0.05);
+                servo.setPosition(0);
             }
 
-            if (currentGamepad2.b && !previousGamepad2.b && servo.getPosition() > MIN_POS) {
-                servo.setPosition(servo.getPosition() - 0.05);
+            if (currentGamepad2.b && !previousGamepad2.b ) {
+//                servo.setPosition(servo.getPosition() - 0.05);
+                servo.setPosition(0.6);
             }
 
             if (currentGamepad2.x && !previousGamepad2.x) {

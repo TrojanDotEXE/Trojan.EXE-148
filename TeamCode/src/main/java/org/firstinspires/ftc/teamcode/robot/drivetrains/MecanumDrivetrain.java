@@ -72,12 +72,12 @@ public class MecanumDrivetrain {
             case NORMAL: {
                 if (gamepad.a) setDriveMode(DriveMode.FIELD_CENTERED);
                 calculatePowers(gamepad);
-                opMode.telemetry.addData("Mode ", "Normal");
+//                opMode.telemetry.addData("Mode ", "Normal");
             }break;
             case FIELD_CENTERED: {
                 if (gamepad.b) setDriveMode(DriveMode.NORMAL);
                 calculatePowers2(gamepad);
-                opMode.telemetry.addData("Mode ", "Field Centered");
+//                opMode.telemetry.addData("Mode ", "Field Centered");
             }break;
         }
         leftFront.setPower(frontL);

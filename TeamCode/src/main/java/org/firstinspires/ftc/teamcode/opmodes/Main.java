@@ -32,6 +32,8 @@ public class Main extends OpMode {
 
         robot.drivetrain.drive(currentGamepad1);
         robot.intake.keyBind(currentGamepad2, previousGamepad2);
-        robot.scoring.keyBind(gamepad2);
+        robot.scoring.keyBind(currentGamepad2, previousGamepad2);
+        robot.scoring.getPos();
+        telemetry.update();
     }
 }

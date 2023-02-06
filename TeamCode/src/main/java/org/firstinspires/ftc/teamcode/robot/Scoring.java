@@ -8,31 +8,29 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.teamcode.robot.mecanisms.ScoringArm;
 import org.firstinspires.ftc.teamcode.robot.mecanisms.ScoringSlider;
 
 public class Scoring {
     OpMode opMode;
     ScoringSlider slider = new ScoringSlider();
-    Servo arm;
+    ScoringArm arm = new ScoringArm();
     final int MAX_SLIDER = 1000;
     public Scoring(@NonNull OpMode opMode){
         this.opMode = opMode;
     }
         public void init(){
             slider.init(opMode.hardwareMap);
-//            arm = opMode.hardwareMap.get(Servo.class, "scoringArm");
-//            arm.setPosition(0);
+            arm.init(opMode.hardwareMap);
         }
 
-        public void keyBind(Gamepad gamepad){
+        public void keyBind(Gamepad gamepad, Gamepad prevGamepad){
             slider.keyMap(gamepad);
+            arm.keyBind(gamepad, prevGamepad);
         }
 
-        public void arm (Gamepad gamepad){
-
-            if (gamepad.right_bumper) arm.setPosition(1);
-            arm.setPosition(0);
-
+        public void getPos(){
+            slider.getPos(opMode.telemetry);
         }
 }
 
