@@ -19,7 +19,6 @@ public class Robot {
     }
 
     public void init(){
-        opMode.telemetry.addData("[Status]: ", "se pregateste...");
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
@@ -30,14 +29,11 @@ public class Robot {
 
         imu = opMode.hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
-
         drivetrain = new MecanumDrivetrain(opMode, imu);
         intake     = new Intake(opMode);
         scoring    = new Scoring(opMode);
         scoring.init();
         intake.init();
-
-        opMode.telemetry.addData("[Status]: ", "initializat");
     }
 
     public void startTimer(){timer.reset();}

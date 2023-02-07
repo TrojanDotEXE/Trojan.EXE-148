@@ -35,8 +35,6 @@ public class MecanumDrivetrain {
     public MecanumDrivetrain(OpMode opMode, BNO055IMU imu) {this(opMode, imu, DriveMode.FIELD_CENTERED);}
 
     public MecanumDrivetrain(@NonNull OpMode opMode, BNO055IMU imu, DriveMode driveMode) {
-        opMode.telemetry.addData("Mecanum Drive: ", "se pregateste...");
-
         leftFront = opMode.hardwareMap.get(DcMotorEx.class, "leftFront");
         rightFront = opMode.hardwareMap.get(DcMotorEx.class, "rightFront");
         leftRear = opMode.hardwareMap.get(DcMotorEx.class, "leftRear");
@@ -53,8 +51,6 @@ public class MecanumDrivetrain {
         this.driveMode = driveMode;
         this.opMode = opMode;
         this.imu = imu;
-
-        opMode.telemetry.addData("Mecanum Drive: ", "initializat");
     }
 
     public void setDriveMode(DriveMode driveMode){
@@ -126,6 +122,7 @@ public class MecanumDrivetrain {
         frontL = (pow2 + turn)* scale;
         rearR = (pow2 - turn)* scale;
     }
+
     public double getAngle() {
         return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.RADIANS).firstAngle;
     }
