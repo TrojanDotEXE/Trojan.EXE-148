@@ -8,8 +8,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Config
 public class IntakeSlider {
     private Servo slider1, slider2;
-    public static double EXTENDED_S = 1, RETRACTED_S = 0;
-    public static double EXTENDED_D = 1, RETRACTED_D = 0;
+    public static double EXTENDED_S = .42, RETRACTED_S = .11;
+    public static double EXTENDED_D = .83, RETRACTED_D = .55;
     private boolean sliderToggle = false;
 
     public void init(HardwareMap hardwareMap){
@@ -23,8 +23,14 @@ public class IntakeSlider {
 
     public void keyBind(Gamepad gamepad, Gamepad prevGamepad){
         if(gamepad.left_bumper && !prevGamepad.left_bumper) sliderToggle = !sliderToggle;
-//        if(gamepad.dpad_up && !prevGamepad.dpad_up) EXTENDED_D += .1;
-//        if(gamepad.dpad_down && !prevGamepad.dpad_down) EXTENDED_D -= .1;
+        if(gamepad.dpad_up && !prevGamepad.dpad_up){
+            EXTENDED_D += .1;
+            EXTENDED_S += .1;
+        }
+        if(gamepad.dpad_down && !prevGamepad.dpad_down){
+            EXTENDED_D -= .1;
+            EXTENDED_S -= .1;
+        }
 
         if(sliderToggle){
             slider1.setPosition(EXTENDED_S);
@@ -35,4 +41,6 @@ public class IntakeSlider {
             slider2.setPosition(RETRACTED_D);
         }
     }
+
+
 }

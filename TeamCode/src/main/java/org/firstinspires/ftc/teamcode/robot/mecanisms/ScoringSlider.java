@@ -12,7 +12,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 @Config
 public class ScoringSlider {
     private DcMotorEx sliderS, sliderD;
-    public static int LOW_J = 0, MID_J = 300, HIGH_J = 1790;
+    public static int LOW_J = 0, MID_J = 300, HIGH_J = 1520;
 
     public void init(HardwareMap hardwareMap){
         sliderS = hardwareMap.get(DcMotorEx.class, "scoringS");
@@ -36,20 +36,17 @@ public class ScoringSlider {
         double power = -gamepad.right_stick_y;
         double max = 1;
         double min = -1;
-//        if ((sliderS.getCurrentPosition() < HIGH_J)&&(sliderD.getCurrentPosition() < HIGH_J)){
-//           min = 0;
-//           max = 1;
-//        }
-//        if ((sliderS.getCurrentPosition() > 0)&&(sliderD.getCurrentPosition() > 0)){
-//            min = -1;
-//            max = 0;
-//        }
+        if ((sliderD.getCurrentPosition() >= HIGH_J)){
+            min = -1;
+            max = 0;
+        }
+        if ((sliderD.getCurrentPosition() <= 0)){
+            min = 0;
+            max = 1;
+        }
         sliderS.setPower(Range.clip(power, min, max));
         sliderD.setPower(Range.clip(power, min, max));
     }
 
-    public void getPos(Telemetry telemetry){
-        telemetry.addData("SliderS ", "%2d/%2d ", sliderS.getCurrentPosition(), HIGH_J);
-        telemetry.addData("SliderD ", "%2d/%2d ", sliderD.getCurrentPosition(), HIGH_J);
-    }
+    public int getPos() {return sliderD.getCurrentPosition();}
 }

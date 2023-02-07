@@ -16,7 +16,7 @@ public class ScoringSliderConfig extends LinearOpMode {
         waitForStart();
         while (opModeIsActive() && !isStopRequested()){
             slides.keyBind(gamepad2);
-            slides.getPos(telemetry);
+//            slides.getPos(telemetry);
             telemetry.update();
         }
 

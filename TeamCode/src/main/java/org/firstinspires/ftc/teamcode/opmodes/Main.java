@@ -24,16 +24,22 @@ public class Main extends OpMode {
     }
 
     @Override
+    public void start(){
+        telemetry.clear();
+        telemetry.update();
+    }
+
+    @Override
     public void loop() {
         previousGamepad1.copy(currentGamepad1);
         currentGamepad1.copy(gamepad1);
         previousGamepad2.copy(currentGamepad2);
         currentGamepad2.copy(gamepad2);
 
-        robot.drivetrain.drive(currentGamepad1);
+        robot.drivetrain.drive(currentGamepad1, previousGamepad1);
         robot.intake.keyBind(currentGamepad2, previousGamepad2);
         robot.scoring.keyBind(currentGamepad2, previousGamepad2);
-        robot.scoring.getPos();
+//        robot.scoring.getPos();
         telemetry.update();
     }
 }

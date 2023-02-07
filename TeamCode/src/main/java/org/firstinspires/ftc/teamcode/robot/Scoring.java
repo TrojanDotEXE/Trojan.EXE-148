@@ -21,11 +21,11 @@ public class Scoring {
 
         public void keyBind(Gamepad gamepad, Gamepad prevGamepad){
             slider.keyBind(gamepad);
-            arm.keyBind(gamepad, prevGamepad);
+            arm.keyBind(gamepad, prevGamepad, slider.getPos());
         }
 
-        public void getPos(){
-            slider.getPos(opMode.telemetry);
-        }
+//        public void getPos(){
+//            slider.getPos(opMode.telemetry);
+//        }
 }
 

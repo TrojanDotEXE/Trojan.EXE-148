@@ -1,28 +1,30 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <Robot type="FirstInspires-FTC">
-<!--    <LynxUsbDevice name="Webcam1" serialNumber=""></LynxUsbDevice>-->
     <LynxUsbDevice name="Control Hub Portal" serialNumber="(embedded)" parentModuleAddress="173">
         <LynxModule name="Control Hub" port="173">
+<!--            <WebcamName name="Webcam" serialNumber="4CC7D760"/>-->
             <LynxEmbeddedIMU name="imu" port="0" bus="0" />
             <!--           Drivetrain-->
             <goBILDA5202SeriesMotor name="leftFront" port="0" /> <!--Blue-->
             <goBILDA5202SeriesMotor name="leftRear" port="1" /> <!--Red-->
-            <goBILDA5202SeriesMotor name="rightFront" port="2" /> <!--Blue-->
-            <goBILDA5202SeriesMotor name="rightRear" port="3" /> <!--Red-->
+            <goBILDA5202SeriesMotor name="rightRear" port="2" /> <!--Red-->
+            <goBILDA5202SeriesMotor name="rightFront" port="3" /> <!--Blue-->
+
             <!--              Intake            -->
+            <Servo name="clawR" port="0"/>
+            <Servo name="clawL" port="1" />
+        </LynxModule>
+
+        <LynxModule name="Expansion Hub" port="1">
+            <!--              Intake            -->
+            <RevRoboticsCoreHexMotor name="intakeArm" port="0" />
             <Servo name="intakeS" port="0"/>
             <Servo name="intakeD" port="1"/>
-            <Servo name="clawR" port="2"/>
-            <Servo name="clawL" port="3" />
-            <!--            Scoring               -->
-            <goBILDA5202SeriesMotor name="scoringS" port="0" />
-            <goBILDA5202SeriesMotor name="scoringD" port="1" />
+            <!--              Scoring            -->
+            <goBILDA5202SeriesMotor name="scoringD" port="2" /> <!--Blue-->
+            <goBILDA5202SeriesMotor name="scoringS" port="3" /> <!--Red-->
+            <Servo name="scoringArm" port="2"/>
         </LynxModule>
-        <LinxModule name="Expansion Hub" port="" >
-            <goBILDA5202SeriesMotor name="scoringR" port="0" /> <!--Blue-->
-            <goBILDA5202SeriesMotor name="scoringL" port="1" /> <!--Red-->
-            <RevRoboticsCoreHexMotor name="intakeArm" port="2" />
-        </LinxModule>
     </LynxUsbDevice>
 </Robot>
 

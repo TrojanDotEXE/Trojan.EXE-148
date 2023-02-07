@@ -20,13 +20,13 @@ import java.util.List;
 
 
 public class MecanumDrivetrain {
-    protected DcMotorEx leftFront, leftRear, rightFront, rightRear;
-    protected double frontL, frontR, rearL, rearR;
-    protected List<DcMotorEx>  motors;
-
-    protected DriveMode driveMode;
-    protected BNO055IMU imu;
-    protected OpMode opMode;
+    private DcMotorEx leftFront, leftRear, rightFront, rightRear;
+    private double frontL, frontR, rearL, rearR;
+    private List<DcMotorEx>  motors;
+    private DriveMode driveMode;
+    private BNO055IMU imu;
+    private OpMode opMode;
+    private boolean slowToggle = false;
     enum DriveMode {
         NORMAL,
         FIELD_CENTERED,
@@ -65,15 +65,15 @@ public class MecanumDrivetrain {
         return this.driveMode;
     }
 
-    public void drive(Gamepad gamepad) {
+    public void drive(Gamepad gamepad, Gamepad prevGamepad) {
         switch (driveMode) {
             case NORMAL: {
                 if (gamepad.a) setDriveMode(DriveMode.FIELD_CENTERED);
-                calculatePowers(gamepad);
+                calculatePowers(gamepad, prevGamepad);
             }break;
             case FIELD_CENTERED: {
                 if (gamepad.a) setDriveMode(DriveMode.NORMAL);
-                calculatePowers2(gamepad);
+                calculatePowers2(gamepad, prevGamepad);
             }break;
         }
         leftFront.setPower(frontL);
@@ -91,7 +91,7 @@ public class MecanumDrivetrain {
         rightRear.setPower(pow2 - turn);
     }
 
-    protected void calculatePowers(@NonNull Gamepad gamepad) {
+    protected void calculatePowers(@NonNull Gamepad gamepad, Gamepad prevGamepad) {
         double x = gamepad.left_stick_x;
         double y = -gamepad.left_stick_y;
         double turn = gamepad.right_stick_x;
@@ -99,52 +99,34 @@ public class MecanumDrivetrain {
         double gamepadAngle = Math.atan2(y, x);
         double pow1 = Range.clip(Math.sin(gamepadAngle - Math.PI/4) * magnitude, -1, 1);
         double pow2 = Range.clip(Math.sin(gamepadAngle + Math.PI/4) * magnitude, -1, 1);
-        double scale = gamepad.left_stick_button  ? .5 : 1;
+        if(gamepad.left_stick_button && !prevGamepad.left_stick_button) slowToggle = !slowToggle;
+        double scale = slowToggle  ? .5 : 1;
 
         frontR = (pow1 - turn ) * scale;
         rearL = (pow1 + turn ) * scale;
         frontL = (pow2 + turn ) * scale;
         rearR = (pow2 - turn ) * scale;
-
-        opMode.telemetry.addData("Turn", turn);
-        opMode.telemetry.addData("Pow1", pow1);
-        opMode.telemetry.addData("Pow2", pow2);
-        powersToTelemetry(opMode.telemetry);
     }
 
-    private void calculatePowers2(@NonNull Gamepad gamepad) {
+    private void calculatePowers2(@NonNull Gamepad gamepad, Gamepad prevGamepad) {
         double x = gamepad.left_stick_x;
-        double y = -gamepad.left_stick_y;
+        double y = gamepad.left_stick_y;
         double turn = gamepad.right_stick_x;
         double magnitude = Range.clip(Math.hypot(x, y), 0, 1);
         double gamepadAngle = Math.atan2(y, x);
         double robotAngle = getAngle();
-        double movementAngle = gamepadAngle - robotAngle;
+        double movementAngle = gamepadAngle + robotAngle;
         double pow1 = Range.clip(Math.sin(movementAngle - Math.PI/4) * magnitude, -1, 1);
         double pow2 = Range.clip(Math.sin(movementAngle + Math.PI/4) * magnitude, -1, 1);
-        double scale = gamepad.left_stick_button  ? .5 : 1;
+        if(gamepad.left_stick_button && !prevGamepad.left_stick_button) slowToggle = !slowToggle;
+        double scale = slowToggle  ? .5 : 1;
 
         frontR = (pow1 - turn)* scale;
         rearL = (pow1 + turn)* scale;
         frontL = (pow2 + turn)* scale;
         rearR = (pow2 - turn)* scale;
     }
-
-    public void toTelemetry(){
-        opMode.telemetry.addData("Left Front Pow / Pos ", "%.2f / %.2f", leftFront.getPower(), leftFront.getCurrentPosition());
-        opMode.telemetry.addData("Right Front Pow / Pos ", "%.2f / %.2f", rightFront.getPower(), rightFront.getCurrentPosition());
-        opMode.telemetry.addData("Left Rear Pow / Pos ", "%.2f / %.2f", leftRear.getPower(), leftRear.getCurrentPosition());
-        opMode.telemetry.addData("Left Front Pow / Pos ", "%.2f / %.2f", rightRear.getPower(), rightRear.getCurrentPosition());
-    }
-
     public double getAngle() {
         return imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.RADIANS).firstAngle;
-    }
-
-    public void powersToTelemetry(@NonNull Telemetry t) {
-        t.addData("LeftFront:", "%.3f / %.3f", leftFront.getPower(), frontL);
-        t.addData("RightFront: ", "%.3f / %.3f", rightFront.getPower(), frontR);
-        t.addData("LeftRear: ", "%.3f / %.3f", leftRear.getPower(), rearL);
-        t.addData("RightRear: ", "%.3f / %.3f", rightRear.getPower(), rearR);
     }
 }

@@ -23,7 +23,7 @@ public class ScoringArmConfig extends LinearOpMode {
             previousGamepad2.copy(currentGamepad2);
             currentGamepad2.copy(gamepad2);
 
-            arm.keyBind(currentGamepad2, previousGamepad2);
+//            arm.keyBind(currentGamepad2, previousGamepad2);
         }
     }
 }
