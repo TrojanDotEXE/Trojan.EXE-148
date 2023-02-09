@@ -41,6 +41,8 @@ public class Main2 extends LinearOpMode {
         currentGamepad2 = new Gamepad();
         previousGamepad2 = new Gamepad();
 
+        waitForStart();
+
         while (opModeIsActive() && !isStopRequested()){
             previousGamepad1.copy(currentGamepad1);
             currentGamepad1.copy(gamepad1);
