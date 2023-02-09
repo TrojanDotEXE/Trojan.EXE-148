@@ -22,6 +22,7 @@ public class IntakeArm {
         intakeArm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         intakeArm.setPower(0);
         intakeArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        intakeArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     public void keyBind(@NonNull Gamepad gamepad, Gamepad prevGamepad){
