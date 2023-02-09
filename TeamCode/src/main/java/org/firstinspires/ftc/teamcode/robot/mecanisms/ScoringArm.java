@@ -8,23 +8,23 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @Config
 public class ScoringArm {
-    private Servo arm;
+    private Servo scoringArm;
     public static double MAX_POS = .6, MIN_POS = 0.05;
     public boolean armToggle = false;
 
     public void init(@NonNull HardwareMap hardwareMap){
-        arm = hardwareMap.get(Servo.class, "scoringArm");
-        arm.setDirection(Servo.Direction.FORWARD);
-        arm.setPosition(MIN_POS);
+        scoringArm = hardwareMap.get(Servo.class, "scoringArm");
+        scoringArm.setDirection(Servo.Direction.FORWARD);
+        scoringArm.setPosition(MIN_POS);
     }
 
     public void keyBind(@NonNull Gamepad gamepad, Gamepad gamepadcopy, int trigger){
         if(gamepad.a && !gamepadcopy.a) armToggle = !armToggle;
         if(trigger > 1400){
-            arm.setPosition(MAX_POS);
+            scoringArm.setPosition(MAX_POS);
         }
         else if(trigger < 100){
-            arm.setPosition(MIN_POS);
+            scoringArm.setPosition(MIN_POS);
         }
     }
 
