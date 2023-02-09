@@ -12,10 +12,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(group = "1", name = "Main3")
 public class Main3 extends LinearOpMode {
-    Gamepad currentGamepad1;
-    Gamepad previousGamepad1;
-    Gamepad currentGamepad2;
-    Gamepad previousGamepad2;
+
      Servo rightClaw, leftClaw;
      double OPEN_D = .12, CLOSE_D = 0;
      double OPEN_S = .45, CLOSE_S = .66;
@@ -46,10 +43,10 @@ public class Main3 extends LinearOpMode {
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
-        currentGamepad1 = new Gamepad();
-        previousGamepad1 = new Gamepad();
-        currentGamepad2 = new Gamepad();
-        previousGamepad2 = new Gamepad();
+        Gamepad currentGamepad1 = new Gamepad();
+        Gamepad previousGamepad1 = new Gamepad();
+        Gamepad currentGamepad2 = new Gamepad();
+        Gamepad previousGamepad2 = new Gamepad();
 
         rightClaw = hardwareMap.get(Servo.class, "clawR");
         leftClaw = hardwareMap.get(Servo.class, "clawL");
@@ -79,12 +76,11 @@ public class Main3 extends LinearOpMode {
             previousGamepad2.copy(currentGamepad2);
             currentGamepad2.copy(gamepad2);
 
-            if(currentGamepad2.left_bumper && !previousGamepad2.left_bumper) clawToggle = !clawToggle;
-            if(clawToggle){
+            if(gamepad2.left_bumper) {
                 rightClaw.setPosition(OPEN_D);
                 leftClaw.setPosition(OPEN_S);
             }
-            else{
+            if(gamepad2.right_bumper) {
                 rightClaw.setPosition(CLOSE_D);
                 leftClaw.setPosition(CLOSE_S);
             }

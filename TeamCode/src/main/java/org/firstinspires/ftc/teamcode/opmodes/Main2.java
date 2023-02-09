@@ -40,6 +40,10 @@ public class Main2 extends LinearOpMode {
         previousGamepad1 = new Gamepad();
         currentGamepad2 = new Gamepad();
         previousGamepad2 = new Gamepad();
+        previousGamepad1.copy(currentGamepad1);
+        currentGamepad1.copy(gamepad1);
+        previousGamepad2.copy(currentGamepad2);
+        currentGamepad2.copy(gamepad2);
 
         waitForStart();
 
