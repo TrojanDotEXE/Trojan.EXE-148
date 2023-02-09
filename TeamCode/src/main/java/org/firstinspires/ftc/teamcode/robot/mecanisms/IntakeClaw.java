@@ -23,6 +23,7 @@ public class IntakeClaw {
 
     public void keyBind(Gamepad gamepad, Gamepad prevGamepad){
         if(gamepad.left_bumper && !prevGamepad.left_bumper) clawToggle = !clawToggle;
+
         if(clawToggle){
             rightClaw.setPosition(OPEN_D);
             leftClaw.setPosition(OPEN_S);

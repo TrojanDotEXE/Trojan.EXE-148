@@ -10,20 +10,22 @@
             <goBILDA5202SeriesMotor name="rightRear" port="2" /> <!--Red-->
             <goBILDA5202SeriesMotor name="rightFront" port="3" /> <!--Blue-->
 
-            <!--              Intake            -->
-            <Servo name="clawR" port="0"/>
-            <Servo name="clawL" port="1" />
         </LynxModule>
 
         <LynxModule name="Expansion Hub" port="1">
             <!--              Intake            -->
-            <RevRoboticsCoreHexMotor name="intakeArm" port="0" />
+            <RevRoboticsCoreHexMotor name="intakeArm" port="3" />
             <Servo name="intakeS" port="0"/>
             <Servo name="intakeD" port="1"/>
+
+            <Servo name="clawR" port="3"/>
+            <Servo name="clawL" port="2" />
+
             <!--              Scoring            -->
-            <goBILDA5202SeriesMotor name="scoringD" port="2" /> <!--Blue-->
-            <goBILDA5202SeriesMotor name="scoringS" port="3" /> <!--Red-->
-            <Servo name="scoringArm" port="2"/>
+            <goBILDA5202SeriesMotor name="scoringD" port="0" /> <!--Blue-->
+            <goBILDA5202SeriesMotor name="scoringS" port="1" /> <!--Red-->
+            <Servo name="scoringArm" port="4"/>
+
         </LynxModule>
     </LynxUsbDevice>
 </Robot>
