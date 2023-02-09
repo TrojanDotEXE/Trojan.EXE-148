@@ -8,14 +8,12 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Config
 public class IntakeArm {
     private DcMotorEx intakeArm;
     public static int DOWN_POS = 50, UP_POS = 0;
-    public static double power = 0.3;
-    public ElapsedTime timer = new ElapsedTime();
+    public static double power = 0.2;
     private boolean armToggle = false;
 
     public void init(@NonNull HardwareMap hardwareMap){
@@ -27,22 +25,16 @@ public class IntakeArm {
     }
 
     public void keyBind(@NonNull Gamepad gamepad, Gamepad prevGamepad){
-//        if(gamepad.a && !prevGamepad.a) armToggle = !armToggle;
-        if(gamepad.a && !prevGamepad.a){
-            timer.reset();
-            while ((int)timer.seconds() > 1)
-                intakeArm.setPower(power);
-//            intakeArm.setTargetPosition(UP_POS);
-//            intakeArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//            while (intakeArm.isBusy()) intakeArm.setPower(power);
+        if(gamepad.a && !prevGamepad.a) armToggle = !armToggle;
+        if(armToggle){
+            intakeArm.setTargetPosition(UP_POS);
+            intakeArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            while (intakeArm.isBusy()) intakeArm.setPower(power);
         }
-        else if(gamepad.b && !prevGamepad.b){
-            timer.reset();
-            while ((int)timer.seconds() > 1)
-                intakeArm.setPower(power);
-//            intakeArm.setTargetPosition(DOWN_POS);
-//            intakeArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//            while (intakeArm.isBusy()) intakeArm.setPower(power);
+        else{
+            intakeArm.setTargetPosition(DOWN_POS);
+            intakeArm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            while (intakeArm.isBusy()) intakeArm.setPower(power);
         }
     }
 
