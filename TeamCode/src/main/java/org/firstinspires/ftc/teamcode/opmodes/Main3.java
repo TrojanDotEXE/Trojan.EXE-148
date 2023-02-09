@@ -46,10 +46,7 @@ public class Main3 extends LinearOpMode {
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
         imu = hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
-        currentGamepad1 = new Gamepad();
-        previousGamepad1 = new Gamepad();
-        currentGamepad2 = new Gamepad();
-        previousGamepad2 = new Gamepad();
+
 
         rightClaw = hardwareMap.get(Servo.class, "clawR");
         leftClaw = hardwareMap.get(Servo.class, "clawL");
@@ -70,7 +67,10 @@ public class Main3 extends LinearOpMode {
         slider2.setDirection(Servo.Direction.FORWARD);
         slider1.setPosition(RETRACTED_S);
         slider2.setPosition(RETRACTED_D);
-
+        currentGamepad1 = new Gamepad();
+        previousGamepad1 = new Gamepad();
+        currentGamepad2 = new Gamepad();
+        previousGamepad2 = new Gamepad();
         while (opModeIsActive() && !isStopRequested()){
             previousGamepad1.copy(currentGamepad1);
             currentGamepad1.copy(gamepad1);
