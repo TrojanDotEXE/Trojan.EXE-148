@@ -35,11 +35,11 @@ public class RobotAuto{
         imu = opMode.hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
 
-        drivetrain = new MecanumDrivetrain(opMode, imu);
+        drivetrain = new MecanumDrivetrain(opMode);
         intake     = new Intake(opMode);
         scoring    = new Scoring(opMode);
         camera     = new Camera(opMode);
-
+        drivetrain.init(imu);
         intake.init();
         scoring.init();
         camera.init();

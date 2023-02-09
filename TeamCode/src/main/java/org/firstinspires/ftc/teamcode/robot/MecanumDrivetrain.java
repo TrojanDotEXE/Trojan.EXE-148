@@ -32,9 +32,15 @@ public class MecanumDrivetrain {
         FIELD_CENTERED,
     }
 
-    public MecanumDrivetrain(OpMode opMode, BNO055IMU imu) {this(opMode, imu, DriveMode.FIELD_CENTERED);}
+    public MecanumDrivetrain(OpMode opMode) {this(opMode, DriveMode.FIELD_CENTERED);}
 
-    public MecanumDrivetrain(@NonNull OpMode opMode, BNO055IMU imu, DriveMode driveMode) {
+    public MecanumDrivetrain(@NonNull OpMode opMode, DriveMode driveMode) {
+        this.driveMode = driveMode;
+        this.opMode = opMode;
+
+    }
+
+    public void init(BNO055IMU imu) {
         leftFront = opMode.hardwareMap.get(DcMotorEx.class, "leftFront");
         rightFront = opMode.hardwareMap.get(DcMotorEx.class, "rightFront");
         leftRear = opMode.hardwareMap.get(DcMotorEx.class, "leftRear");
@@ -48,8 +54,6 @@ public class MecanumDrivetrain {
         }
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftRear.setDirection(DcMotorSimple.Direction.REVERSE);
-        this.driveMode = driveMode;
-        this.opMode = opMode;
         this.imu = imu;
     }
 
