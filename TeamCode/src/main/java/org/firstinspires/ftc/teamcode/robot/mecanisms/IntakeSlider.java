@@ -12,7 +12,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @Config
-@TeleOp(group = "Configs", name = "MaPiscaOchii")
 public class IntakeSlider {
     private Servo slider1, slider2;
     public static double EXTENDED_S = .42, RETRACTED_S = .11;
