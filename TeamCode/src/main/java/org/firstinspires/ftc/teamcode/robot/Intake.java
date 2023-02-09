@@ -18,15 +18,15 @@ public class Intake {
     }
 
     public void init(){
-//        intakeSlider.init(opMode.hardwareMap);
-//        intakeArm.init(opMode.hardwareMap);
         intakeClaw.init(opMode.hardwareMap);
+        intakeArm.init(opMode.hardwareMap);
+//        intakeSlider.init(opMode.hardwareMap);
     }
 
     public void keyBind(Gamepad currentGamepad, Gamepad previousGamepad){
         intakeClaw.keyBind(currentGamepad, previousGamepad);
+        intakeArm.keyBind(currentGamepad, previousGamepad);
 //        intakeSlider.keyBind(currentGamepad, previousGamepad);
-//        intakeArm.keyBind(currentGamepad, previousGamepad);
     }
 }
 
