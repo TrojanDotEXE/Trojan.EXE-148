@@ -14,8 +14,8 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 @Config
 public class IntakeSlider {
     private Servo slider1, slider2;
-    public static double EXTENDED_S = .42, RETRACTED_S = .11;
-    public static double EXTENDED_D = .83, RETRACTED_D = .55;
+    public static double EXTENDED_S = .35, RETRACTED_S = .02;
+    public static double EXTENDED_D = .72, RETRACTED_D = .39;
     private boolean sliderToggle = false;
 
     public void init(HardwareMap hardwareMap){
