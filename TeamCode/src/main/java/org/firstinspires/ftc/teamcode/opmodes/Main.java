@@ -36,9 +36,9 @@ public class Main extends OpMode {
         previousGamepad2.copy(currentGamepad2);
         currentGamepad2.copy(gamepad2);
 
-        robot.drivetrain.drive(currentGamepad1, previousGamepad1);
+//        robot.drivetrain.drive(currentGamepad1, previousGamepad1);
         robot.intake.keyBind(currentGamepad2, previousGamepad2);
-        robot.scoring.keyBind(currentGamepad2, previousGamepad2);
+//        robot.scoring.keyBind(currentGamepad2, previousGamepad2);
 //        robot.scoring.getPos();
         telemetry.update();
     }

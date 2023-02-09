@@ -29,11 +29,11 @@ public class Robot {
 
         imu = opMode.hardwareMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
-        drivetrain = new MecanumDrivetrain(opMode);
+//        drivetrain = new MecanumDrivetrain(opMode);
         intake     = new Intake(opMode);
-        scoring    = new Scoring(opMode);
-        drivetrain.init(imu);
-        scoring.init();
+//        scoring    = new Scoring(opMode);
+//        drivetrain.init(imu);
+//        scoring.init();
         intake.init();
     }
 
