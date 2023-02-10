@@ -10,7 +10,7 @@ public class IntakeClaw {
     private Servo rightClaw, leftClaw;
     public static double OPEN_D = .12, CLOSE_D = 0;
     public static double OPEN_S = .45, CLOSE_S = .66;
-    private boolean clawToggle = false;
+    private boolean clawToggle = false, clawOpen = false, clawClosed = true;
 
     public void init(HardwareMap hardwareMap){
         rightClaw = hardwareMap.get(Servo.class, "clawR");
@@ -27,10 +27,22 @@ public class IntakeClaw {
         if(clawToggle){
             rightClaw.setPosition(OPEN_D);
             leftClaw.setPosition(OPEN_S);
+            clawOpen = !clawOpen;
+            clawClosed = !clawClosed;
         }
         else{
             rightClaw.setPosition(CLOSE_D);
             leftClaw.setPosition(CLOSE_S);
+            clawOpen = !clawOpen;
+            clawClosed = !clawClosed;
         }
+    }
+
+    public  boolean isClawClosed(){
+        return clawClosed;
+    }
+
+    public  boolean isClawOpen(){
+        return clawOpen;
     }
 }

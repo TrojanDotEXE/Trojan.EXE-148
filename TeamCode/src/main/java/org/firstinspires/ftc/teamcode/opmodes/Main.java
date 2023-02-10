@@ -31,7 +31,11 @@ public class Main extends LinearOpMode {
             previousGamepad2.copy(currentGamepad2);
             currentGamepad2.copy(gamepad2);
 
+            robot.drivetrain.drive(currentGamepad1, previousGamepad1);
             robot.intake.keyBind(currentGamepad2, previousGamepad2);
+            robot.scoring.keyBind(currentGamepad1, previousGamepad1);
+
+            telemetry.update();
         }
     }
 
