@@ -3,8 +3,8 @@ package org.firstinspires.ftc.teamcode.robot;
 import androidx.annotation.NonNull;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import org.firstinspires.ftc.teamcode.robot.mecanisms.ScoringArm;
-import org.firstinspires.ftc.teamcode.robot.mecanisms.ScoringSlider;
+import org.firstinspires.ftc.teamcode.robot.mechanisms.ScoringArm;
+import org.firstinspires.ftc.teamcode.robot.mechanisms.ScoringSlider;
 
 public class Scoring {
     public OpMode opMode;

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.robot.mecanisms;
+package org.firstinspires.ftc.teamcode.robot.mechanisms;
 
 import androidx.annotation.NonNull;
 import com.acmerobotics.dashboard.config.Config;

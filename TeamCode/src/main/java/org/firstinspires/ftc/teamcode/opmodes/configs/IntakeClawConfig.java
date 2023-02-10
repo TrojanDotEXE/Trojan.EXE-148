@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import org.firstinspires.ftc.teamcode.robot.mecanisms.IntakeClaw;
+import org.firstinspires.ftc.teamcode.robot.mechanisms.IntakeClaw;
 
 //@Disabled
 @TeleOp(group = "Configs", name = "Intake Claw Config")

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.robot.mecanisms;
+package org.firstinspires.ftc.teamcode.robot.mechanisms;
 
 import com.acmerobotics.dashboard.config.Config;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -13,6 +13,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class ScoringSlider {
     private DcMotorEx sliderS, sliderD;
     public static int LOW_J = 0, MID_J = 400, HIGH_J = 1520;
+    public int MAX = HIGH_J;
 
     public void init(HardwareMap hardwareMap){
         sliderS = hardwareMap.get(DcMotorEx.class, "scoringS");
@@ -37,7 +38,10 @@ public class ScoringSlider {
         double power1 = gamepad.right_trigger;
         double max = 1;
         double min = -1;
-        if ((sliderD.getCurrentPosition() >= HIGH_J)){
+        if(gamepad.b) MAX = LOW_J;
+        if(gamepad.x) MAX = MID_J;
+        if(gamepad.y) MAX = HIGH_J;
+        if ((sliderD.getCurrentPosition() >= MAX)){
             min = -1;
             max = 0;
         }

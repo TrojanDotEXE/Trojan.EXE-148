@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.opmodes.configs;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import org.firstinspires.ftc.teamcode.robot.mecanisms.ScoringSlider;
+import org.firstinspires.ftc.teamcode.robot.mechanisms.ScoringSlider;
 
 //@Disabled
 @TeleOp(group = "Configs", name = "Scoring Slider Config")
